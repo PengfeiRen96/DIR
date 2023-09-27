@@ -6,7 +6,8 @@
     <a href='https://scholar.google.com/citations?user=TzpecsAAAAAJ' target='_blank'>Pengfei Ren<sup>1,2</sup></a>&emsp;
     <a href='https://scholar.google.com/citations?user=v8TFZI4AAAAJ' target='_blank'>Chao Wen<sup>2</sup></a>&emsp;
     <a href='https://scholar.google.com/citations?user=3hSD41oAAAAJ' target='_blank'>Xiaozheng Zheng<sup>1,2</sup></a>&emsp;
-    <a href='https://scholar.google.com/citations?&user=ECKq3aUAAAAJ' target='_blank'>Zhou Xue<sup>2</sup></a>&emsp;
+    <a href='https://scholar.google.com/citations?&user=ECKq3aUAAAAJ' target='_blank'>Zhou Xue<sup>2</sup></a>
+    </br>
     <a href='https://scholar.google.com/citations?user=dwhbTsEAAAAJ' target='_blank'>Haifeng Sun<sup>1</sup></a>&emsp;
     <a href='https://scholar.google.com/citations?user=2W2h0SwAAAAJ' target='_blank'>Qi Qi<sup>1</sup></a>&emsp;
     <a href='https://scholar.google.com/citations?user=H441DjwAAAAJ' target='_blank'>Jingyu Wang<sup>1</sup></a>&emsp;

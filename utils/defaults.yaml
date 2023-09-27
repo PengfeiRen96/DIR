@@ -1,0 +1,5 @@
+SEED: 25
+MISC:
+  MANO_PATH: "misc/mano"
+DATASET:
+  INTERHAND_PATH: "none"

@@ -204,14 +204,14 @@ class Trainer:
     def _make_batch_loader(self):
         self.logger.info("Creating dataset...")
 
-        self.train_dataset = InterHandDataset(cfg.data_dir, 'train')
+        self.train_dataset = InterHandDataset(cfg.data_dir, 'train', cfg.root_joint)
         self.trian_loader = DataLoader(self.train_dataset,
                                        batch_size=cfg.batch_size,
                                        num_workers=cfg.num_worker,
                                        shuffle=True,
                                        pin_memory=True,
                                        drop_last=True)
-        self.test_dataset = InterHandDataset(cfg.data_dir, 'test')
+        self.test_dataset = InterHandDataset(cfg.data_dir, 'test', cfg.root_joint)
         self.test_loader = DataLoader(self.test_dataset,
                                       batch_size=cfg.batch_size,
                                       num_workers=cfg.num_worker,
@@ -222,7 +222,7 @@ class Trainer:
 
     def _make_model(self):
         self.logger.info("Making the model...")
-        model = DIR(cfg.joint_num, cfg.mano_path).cuda()
+        model = DIR(cfg.joint_num, cfg.mano_path, cfg.root_joint).cuda()
 
         optimizer = optim.AdamW([{'params': model.parameters(), 'initial_lr': cfg.lr}], cfg.lr)
 
@@ -258,7 +258,7 @@ class Tester:
 
     def _make_batch_loader(self):
         self.logger.info("Creating dataset...")
-        self.dataset = InterHandDataset(cfg.data_dir, 'test')
+        self.dataset = InterHandDataset(cfg.data_dir, 'test', cfg.root_joint)
         self.loader = DataLoader(self.dataset,
                                  batch_size=cfg.batch_size,
                                  num_workers=cfg.num_worker,
@@ -285,7 +285,7 @@ class Tester:
 
     def _make_model(self):
         self.logger.info("Making the model...")
-        model = DIR(cfg.joint_num, cfg.mano_path).cuda()
+        model = DIR(cfg.joint_num, cfg.mano_path, cfg.root_joint).cuda()
         model = self.load_model(model)
         model.eval()
         self.model = model
@@ -340,6 +340,3 @@ if __name__ == '__main__':
         train()
     else:
         test()
-
-
-

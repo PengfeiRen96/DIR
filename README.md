@@ -109,12 +109,30 @@ python train.py
 ```
 
 ## :running_woman: Evaluation
-
+Download the pre-trained models [Google Drive](https://drive.google.com/file/d/1qoLuw1S-_4e7vYFywVb9NboIHVYJN46H/view?usp=sharing)
 ```bash
 python apps/eval_interhand.py --data_path ./interhand2.6m/  --model ./checkpoint/xxx
 ```
 
 You can use different joint id for alignment by setting root_joint (0: Wrist 9:MCP)
+
+Set Wrist=0, you would get following output:
+```bash
+joint mean error:
+    left: 10.74602734297514 mm, right: 9.60523635149002 mm
+    all: 10.17563184723258 mm
+vert mean error:
+    left: 10.49137581139803 mm, right: 9.40467044711113 mm
+    all: 9.94802312925458 mm
+pixel joint mean error:
+    left: 6.332123279571533 mm, right: 5.808280944824219 mm
+    all: 6.070201873779297 mm
+pixel vert mean error:
+    left: 6.235969543457031 mm, right: 5.725381851196289 mm
+    all: 5.98067569732666 mm
+root error: 28.983158990740776 mm
+```
+(We fixed some minor bugs and the performance is higher than the value reported in the paper)
 
 ## :newspaper_roll: License
 

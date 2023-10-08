@@ -3,13 +3,14 @@ class Config:
     pre = 'DIR'
     stage_num = 3
     dataset = 'IntagHand'
-    output_root = './checkpoint/DIR-PosEmb-Scale' # set output root
+    output_root = './checkpoint/DIR' # set output root
     data_dir = './data/interhand2.6m/'
     mano_path = './misc/mano'
     checkpoint = '' # For continue train
     continue_train = False
+    root_joint = 0 # 0 Wrist 9 MCP
 
-    lr = 3e-4
+    lr = 5e-4
     lr_scheduler = 'cosine' # cosine, step
     total_epoch = 50
 

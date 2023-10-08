@@ -87,13 +87,15 @@ def xyz2uvd(joint, cam):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", type=str,
-                        default='/home/rpf/pycharm/TwoHand/checkpoint/EPOF-PosEmb-Scale/checkpoint/best.pth')
+                        default='./DIR.pth')
     parser.add_argument("--data_path", type=str, default='./data/interhand2.6m/')
     parser.add_argument("--bs", type=int, default=256)
     parser.add_argument("--root_joint", type=int, default=0) # 0 Wrist 9 MCP
+    parser.add_argument("--scale", type=bool, default=True)
+
     opt = parser.parse_args()
     opt.map = False
-    name = 'EPOF-PoseEmb-Scale'
+    name = 'DIR-PoseEmb-Wrist'
 
     file_folder = './result/%s' % name
     if not os.path.exists(file_folder):
@@ -178,6 +180,10 @@ if __name__ == '__main__':
             scale_left = (length_left_gt / length_left_pred).unsqueeze(-1).unsqueeze(-1)
             scale_right = (length_right_gt / length_right_pred).unsqueeze(-1).unsqueeze(-1)
 
+            if not opt.scale:
+                scale_left = 1
+                scale_right = 1
+
             joints_left_pred = (joints_left_pred_ori - root_left_pred) * scale_left
             verts_left_pred = (verts_left_pred - root_left_pred) * scale_left
             joints_right_pred = (joints_right_pred_ori - root_right_pred) * scale_right
@@ -224,12 +230,13 @@ if __name__ == '__main__':
             joint_2d_right_loss = joint_2d_right_loss.detach().cpu().numpy()
             joints_2d_loss['right'].append(joint_2d_right_loss)
 
-            if opt.root_joint == 9:
+            if opt.root_joint == 0:
                 root_loss = torch.linalg.norm((gt_offset - rel_root_pred), ord=2, dim=-1)
             else:
                 joints_right_pred_ori = joints_right_pred_ori + rel_root_pred
-                rel_wrist_pred = joints_right_pred_ori[:, opt.root_joint:opt.root_joint+1] - joints_left_pred_ori[:, opt.root_joint:opt.root_joint+1]
-                root_loss = torch.linalg.norm((gt_offset - rel_wrist_pred), ord=2, dim=-1)
+                rel_root_pred = joints_right_pred_ori[:, opt.root_joint:opt.root_joint + 1] - joints_left_pred_ori[:,opt.root_joint:opt.root_joint + 1]
+                root_loss = torch.linalg.norm((gt_offset - rel_root_pred), ord=2, dim=-1)
+
             root_loss = root_loss.detach().cpu().numpy()
             root_loss_list.append(root_loss)
 

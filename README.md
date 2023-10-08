@@ -41,7 +41,9 @@ https://github.com/PengfeiRen96/DIR/blob/main/README.md
 </div>
 
 ## :mega: Updates
+
 [10/2023] Released the pre-trained models :partying_face:!
+
 [07/2023] DIR is accepted to ICCV 2023 (Oral) :partying_face:!
 
 ## :love_you_gesture: Citation

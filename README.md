@@ -28,7 +28,7 @@
 <img src="docs/pics/teaser.png" width="100%"/>
 
 <strong> Our method DIR can achieve an accurate and robust reconstruction of interacting hands.</strong>
-
+https://github.com/PengfeiRen96/DIR/blob/main/README.md
 :open_book: For more visual results, go checkout our <a href="https://pengfeiren96.github.io/DIR/" target="_blank">project page</a>
 
 ---
@@ -41,7 +41,7 @@
 </div>
 
 ## :mega: Updates
-
+[10/2023] Released the pre-trained models :partying_face:!
 [07/2023] DIR is accepted to ICCV 2023 (Oral) :partying_face:!
 
 ## :love_you_gesture: Citation

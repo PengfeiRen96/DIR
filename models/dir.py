@@ -289,7 +289,7 @@ class InitRegressor(nn.Module):
             'pd_proj_left': para_left,
             'pd_proj_right': para_right,
             'pd_mano_para_left': mano_para_left,
-            'pd_mano_para_right': mano_para_left,
+            'pd_mano_para_right': mano_para_right,
             'pd_joint_uv_left': pd_joint_uv_left,
             'pd_joint_uv_right': pd_joint_uv_right,
             'pd_mesh_uv_left': pd_mesh_uv_left,
